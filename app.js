@@ -11,9 +11,6 @@ app.use(cors());
 // Connect to the database
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/shortUrls');
 
-// Allow node to find static content
-app.use(express.static(__dirname + '/public'));
-
 app.get('/new/:urlToShorten(*)', (req, res, next) => {
   const { urlToShorten } = req.params;
   // Regex for url
